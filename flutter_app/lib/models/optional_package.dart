@@ -33,8 +33,8 @@ class OptionalPackage {
 
   static const goPackage = OptionalPackage(
     id: 'go',
-    name: 'Go (Golang)',
-    description: 'Go programming language compiler and tools',
+    name: 'Go（Golang）',
+    description: 'Go 编程语言编译器和工具',
     icon: Icons.integration_instructions,
     color: Colors.cyan,
     installCommand:
@@ -56,7 +56,7 @@ class OptionalPackage {
   static const brewPackage = OptionalPackage(
     id: 'brew',
     name: 'Homebrew',
-    description: 'The missing package manager for Linux',
+    description: 'Linux 上缺失的包管理器',
     icon: Icons.science,
     color: Colors.amber,
     installCommand:
@@ -88,7 +88,7 @@ class OptionalPackage {
   static const sshPackage = OptionalPackage(
     id: 'ssh',
     name: 'OpenSSH',
-    description: 'SSH client and server for secure remote access',
+    description: 'SSH 客户端和服务器，提供安全的远程访问',
     icon: Icons.vpn_key,
     color: Colors.teal,
     installCommand:
