@@ -265,7 +265,7 @@ class _SshScreenState extends State<SshScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Set the root password for SSH login.',
+                  '设置用于 SSH 登录的 root 密码。',
                   style: theme.textTheme.bodySmall?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
                   ),
@@ -321,7 +321,7 @@ class _SshScreenState extends State<SshScreen> {
                   ],
                   const Divider(height: 24),
                   Text(
-                    'Connect from another device:',
+                    '从其他设备连接：',
                     style: theme.textTheme.bodySmall?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                     ),

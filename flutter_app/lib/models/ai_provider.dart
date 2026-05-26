@@ -26,7 +26,7 @@ class AiProvider {
   static const anthropic = AiProvider(
     id: 'anthropic',
     name: 'Anthropic',
-    description: 'Claude models — advanced reasoning and coding',
+    description: 'Claude 模型 — 高级推理与编程',
     icon: Icons.psychology,
     color: Color(0xFFD97706),
     baseUrl: 'https://api.anthropic.com/v1',
@@ -41,7 +41,7 @@ class AiProvider {
   static const openai = AiProvider(
     id: 'openai',
     name: 'OpenAI',
-    description: 'GPT and o-series models',
+    description: 'GPT 及 o 系列模型',
     icon: Icons.auto_awesome,
     color: Color(0xFF10A37F),
     baseUrl: 'https://api.openai.com/v1',
@@ -58,7 +58,7 @@ class AiProvider {
   static const google = AiProvider(
     id: 'google',
     name: 'Google Gemini',
-    description: 'Gemini family of multimodal models',
+    description: 'Gemini 多模态模型系列',
     icon: Icons.diamond,
     color: Color(0xFF4285F4),
     baseUrl: 'https://generativelanguage.googleapis.com/v1beta',
@@ -74,7 +74,7 @@ class AiProvider {
   static const openrouter = AiProvider(
     id: 'openrouter',
     name: 'OpenRouter',
-    description: 'Unified API for hundreds of models',
+    description: '数百种模型的统一 API',
     icon: Icons.route,
     color: Color(0xFF6366F1),
     baseUrl: 'https://openrouter.ai/api/v1',
@@ -90,7 +90,7 @@ class AiProvider {
   static const nvidia = AiProvider(
     id: 'nvidia',
     name: 'NVIDIA NIM',
-    description: 'GPU-optimized inference endpoints',
+    description: 'GPU 优化推理接口',
     icon: Icons.memory,
     color: Color(0xFF76B900),
     baseUrl: 'https://integrate.api.nvidia.com/v1',
@@ -107,7 +107,7 @@ class AiProvider {
   static const deepseek = AiProvider(
     id: 'deepseek',
     name: 'DeepSeek',
-    description: 'High-performance open models',
+    description: '高性能开源模型',
     icon: Icons.explore,
     color: Color(0xFF0EA5E9),
     baseUrl: 'https://api.deepseek.com/v1',
@@ -121,7 +121,7 @@ class AiProvider {
   static const xai = AiProvider(
     id: 'xai',
     name: 'xAI',
-    description: 'Grok models from xAI',
+    description: 'xAI Grok 模型系列',
     icon: Icons.bolt,
     color: Color(0xFFEF4444),
     baseUrl: 'https://api.x.ai/v1',

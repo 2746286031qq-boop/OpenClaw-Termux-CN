@@ -56,7 +56,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             StatusCard(
               title: '终端',
-              subtitle: 'Open Ubuntu shell with OpenClaw',
+              subtitle: '打开 OpenClaw 终端（Ubuntu shell）',
               icon: Icons.terminal,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(
@@ -72,8 +72,8 @@ class DashboardScreen extends StatelessWidget {
                 final subtitle = provider.state.isRunning
                     ? (token != null
                         ? 'Token: ${token.substring(0, (token.length > 8 ? 8 : token.length))}...'
-                        : 'Open OpenClaw dashboard in browser')
-                    : 'Start gateway first';
+                        : '在浏览器中打开网页管理')
+                    : '请先启动网关';
                 return StatusCard(
                   title: '网页管理',
                   subtitle: subtitle,
@@ -84,7 +84,7 @@ class DashboardScreen extends StatelessWidget {
                       if (token != null)
                         IconButton(
                           icon: const Icon(Icons.copy, size: 18),
-                          tooltip: 'Copy dashboard URL',
+                          tooltip: '复制管理地址',
                           onPressed: () {
                             Clipboard.setData(ClipboardData(text: url!));
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -109,7 +109,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             StatusCard(
               title: '设置引导',
-              subtitle: 'Configure API keys and binding',
+              subtitle: '配置 API 密钥和绑定',
               icon: Icons.vpn_key,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(
@@ -118,7 +118,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             StatusCard(
               title: '配置',
-              subtitle: 'Manage gateway settings',
+              subtitle: '管理网关设置',
               icon: Icons.tune,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(
@@ -127,7 +127,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             StatusCard(
               title: 'AI 提供商',
-              subtitle: 'Configure models and API keys',
+              subtitle: '配置模型和 API 密钥',
               icon: Icons.model_training,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(
@@ -136,7 +136,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             StatusCard(
               title: '扩展包',
-              subtitle: 'Install optional tools (Go, Homebrew, SSH)',
+              subtitle: '安装可选工具（Go、Homebrew、SSH）',
               icon: Icons.extension,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(

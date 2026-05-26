@@ -90,7 +90,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
           ? const Center(child: CircularProgressIndicator())
           : ListView(
               children: [
-                _sectionHeader(theme, 'GENERAL'),
+                _sectionHeader(theme, '通用'),
                 SwitchListTile(
                   title: const Text('网关自动启动'),
                   subtitle: const Text('打开应用时启动网关'),
@@ -103,8 +103,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ListTile(
                   title: const Text('电池优化'),
                   subtitle: Text(_batteryOptimized
-                      ? 'Optimized (may kill background sessions)'
-                      : 'Unrestricted (recommended)'),
+                      ? '已优化（可能终止后台会话）'
+                      : '不限制（推荐）'),
                   leading: const Icon(Icons.battery_alert),
                   trailing: _batteryOptimized
                       ? const Icon(Icons.warning, color: AppColors.statusAmber)
@@ -119,8 +119,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ListTile(
                   title: const Text('设置存储'),
                   subtitle: Text(_storageGranted
-                      ? 'Granted — proot can access /sdcard. Revoke if not needed.'
-                      : 'Not granted (recommended) — tap to grant only if needed'),
+                      ? '已授权 — proot 可访问 /sdcard。不需要时可撤销。'
+                      : '未授权（推荐）— 仅在需要时点击授权'),
                   leading: const Icon(Icons.sd_storage),
                   trailing: _storageGranted
                       ? const Icon(Icons.warning_amber, color: AppColors.statusAmber)
@@ -133,7 +133,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   },
                 ),
                 const Divider(),
-                _sectionHeader(theme, 'NODE'),
+                _sectionHeader(theme, '节点'),
                 SwitchListTile(
                   title: const Text('启用节点'),
                   subtitle: const Text('为网关提供设备功能'),
@@ -159,7 +159,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ),
                 const Divider(),
-                _sectionHeader(theme, 'SYSTEM INFO'),
+                _sectionHeader(theme, '系统信息'),
                 ListTile(
                   title: const Text('架构'),
                   subtitle: Text(_arch),
@@ -173,47 +173,47 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ListTile(
                   title: const Text('根文件系统'),
                   subtitle: Text(_status['rootfsExists'] == true
-                      ? 'Installed'
+                      ? '已安装'
                       : '未安装'),
                   leading: const Icon(Icons.storage),
                 ),
                 ListTile(
                   title: const Text('Node.js'),
                   subtitle: Text(_status['nodeInstalled'] == true
-                      ? 'Installed'
+                      ? '已安装'
                       : '未安装'),
                   leading: const Icon(Icons.code),
                 ),
                 ListTile(
                   title: const Text('OpenClaw'),
                   subtitle: Text(_status['openclawInstalled'] == true
-                      ? 'Installed'
+                      ? '已安装'
                       : '未安装'),
                   leading: const Icon(Icons.cloud),
                 ),
                 ListTile(
                   title: const Text('Go 语言'),
                   subtitle: Text(_goInstalled
-                      ? 'Installed'
+                      ? '已安装'
                       : '未安装'),
                   leading: const Icon(Icons.integration_instructions),
                 ),
                 ListTile(
                   title: const Text('Homebrew'),
                   subtitle: Text(_brewInstalled
-                      ? 'Installed'
+                      ? '已安装'
                       : '未安装'),
                   leading: const Icon(Icons.science),
                 ),
                 ListTile(
                   title: const Text('OpenSSH'),
                   subtitle: Text(_sshInstalled
-                      ? 'Installed'
+                      ? '已安装'
                       : '未安装'),
                   leading: const Icon(Icons.vpn_key),
                 ),
                 const Divider(),
-                _sectionHeader(theme, 'MAINTENANCE'),
+                _sectionHeader(theme, '维护'),
                 ListTile(
                   title: const Text('导出快照'),
                   subtitle: const Text('备份配置到下载目录'),
@@ -240,11 +240,11 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ),
                 const Divider(),
-                _sectionHeader(theme, 'ABOUT'),
+                _sectionHeader(theme, '关于'),
                 const ListTile(
                   title: Text('OpenClaw'),
                   subtitle: Text(
-                    'AI Gateway for Android\n版本号 ${AppConstants.version}',
+                    'AI 网关（安卓版）\n版本号 ${AppConstants.version}',
                   ),
                   leading: Icon(Icons.info_outline),
                   isThreeLine: true,
@@ -323,7 +323,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ),
                 ListTile(
-                  title: const Text('Email'),
+                  title: const Text('邮箱'),
                   subtitle: const Text(AppConstants.orgEmail),
                   leading: const Icon(Icons.email_outlined),
                   trailing: const Icon(Icons.open_in_new, size: 18),
@@ -478,7 +478,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         );
       } else {
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("You're on the latest version")),
+          const SnackBar(content: Text('已是最新版本')),
         );
       }
     } catch (_) {

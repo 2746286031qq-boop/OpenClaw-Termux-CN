@@ -87,7 +87,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
               padding: const EdgeInsets.all(16),
               children: [
                 Text(
-                  'Development tools you can install inside the Ubuntu environment.',
+                  '可在 Ubuntu 环境中安装的开发工具。',
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
                   ),
@@ -144,7 +144,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
                             borderRadius: BorderRadius.circular(12),
                           ),
                           child: Text(
-                            'Installed',
+                            '已安装',
                             style: theme.textTheme.labelSmall?.copyWith(
                               color: AppColors.statusGreen,
                               fontWeight: FontWeight.w600,

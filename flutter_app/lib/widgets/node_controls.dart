@@ -50,7 +50,7 @@ class NodeControls extends StatelessWidget {
                   Row(
                     children: [
                       Text(
-                        'Pairing code: ',
+                        '配对码：',
                         style: theme.textTheme.bodyMedium,
                       ),
                       SelectableText(

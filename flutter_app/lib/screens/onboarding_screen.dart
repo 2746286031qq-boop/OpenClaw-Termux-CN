@@ -456,7 +456,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   children: [
                     CircularProgressIndicator(),
                     SizedBox(height: 16),
-                    Text('Starting onboarding...'),
+                    Text('启动引导...'),
                   ],
                 ),
               ),

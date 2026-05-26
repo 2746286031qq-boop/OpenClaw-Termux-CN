@@ -67,7 +67,7 @@ class _NodeScreenState extends State<NodeScreen> {
                     const SizedBox(height: 16),
 
                     // Gateway 连接ion
-                    _sectionHeader(theme, 'GATEWAY CONNECTION'),
+                    _sectionHeader(theme, '网关连接'),
                     Card(
                       child: Padding(
                         padding: const EdgeInsets.all(16),
@@ -114,7 +114,7 @@ class _NodeScreenState extends State<NodeScreen> {
                               TextField(
                                 controller: _tokenController,
                                 decoration: const InputDecoration(
-                                  labelText: 'Gateway Token',
+                                  labelText: '网关 Token',
                                   hintText: '从网关管理地址粘贴 Token',
                                   helperText: '在管理地址 #token= 后找到',
                                   prefixIcon: Icon(Icons.key),
@@ -144,7 +144,7 @@ class _NodeScreenState extends State<NodeScreen> {
 
                     // Pairing Status
                     if (state.pairingCode != null) ...[
-                      _sectionHeader(theme, 'PAIRING'),
+                      _sectionHeader(theme, '配对'),
                       Card(
                         child: Padding(
                           padding: const EdgeInsets.all(16),
@@ -153,7 +153,7 @@ class _NodeScreenState extends State<NodeScreen> {
                               const Icon(Icons.qr_code, size: 48),
                               const SizedBox(height: 8),
                               Text(
-                                'Approve this code on the gateway:',
+                                '在网关上确认此配对码：',
                                 style: theme.textTheme.bodyMedium,
                               ),
                               const SizedBox(height: 8),
@@ -173,61 +173,61 @@ class _NodeScreenState extends State<NodeScreen> {
                     ],
 
                     // 设备功能
-                    _sectionHeader(theme, 'CAPABILITIES'),
+                    _sectionHeader(theme, '设备功能'),
                     _capabilityTile(
                       theme,
                       '相机',
-                      'Capture photos and video clips',
+                      '拍照和录像',
                       Icons.camera_alt,
                     ),
                     _capabilityTile(
                       theme,
                       '画布',
-                      'Not available on mobile',
+                      '手机上不可用',
                       Icons.web,
                       available: false,
                     ),
                     _capabilityTile(
                       theme,
                       '位置',
-                      'Get device GPS coordinates',
+                      '获取设备 GPS 坐标',
                       Icons.location_on,
                     ),
                     _capabilityTile(
                       theme,
-                      'Screen Recording',
-                      'Record device screen (requires consent each time)',
+                      '屏幕录制',
+                      '录制设备屏幕（每次需要授权）',
                       Icons.screen_share,
                     ),
                     _capabilityTile(
                       theme,
                       '手电筒',
-                      'Toggle device torch on/off',
+                      '打开/关闭设备手电筒',
                       Icons.flashlight_on,
                     ),
                     _capabilityTile(
                       theme,
-                      'Vibration',
-                      'Trigger haptic feedback and vibration patterns',
+                      '振动',
+                      '触觉反馈和振动模式',
                       Icons.vibration,
                     ),
                     _capabilityTile(
                       theme,
                       '传感器',
-                      'Read accelerometer, gyroscope, magnetometer, barometer',
+                      '读取加速度计、陀螺仪、磁力计、气压计',
                       Icons.sensors,
                     ),
                     _capabilityTile(
                       theme,
-                      'Serial',
-                      'Bluetooth and USB serial communication',
+                      '串口',
+                      '蓝牙和 USB 串口通信',
                       Icons.usb,
                     ),
                     const SizedBox(height: 16),
 
                     // 设备信息
                     if (state.deviceId != null) ...[
-                      _sectionHeader(theme, 'DEVICE INFO'),
+                      _sectionHeader(theme, '设备信息'),
                       ListTile(
                         title: const Text('设备 ID'),
                         subtitle: SelectableText(
@@ -240,7 +240,7 @@ class _NodeScreenState extends State<NodeScreen> {
                     const SizedBox(height: 16),
 
                     // Logs
-                    _sectionHeader(theme, 'NODE LOGS'),
+                    _sectionHeader(theme, '节点日志'),
                     Card(
                       child: Container(
                         height: 200,

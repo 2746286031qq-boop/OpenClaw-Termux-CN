@@ -304,7 +304,7 @@ class _ConfigureScreenState extends State<ConfigureScreen> {
                   children: [
                     CircularProgressIndicator(),
                     SizedBox(height: 16),
-                    Text('Starting configure...'),
+                    Text('启动配置...'),
                   ],
                 ),
               ),

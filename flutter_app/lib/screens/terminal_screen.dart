@@ -382,7 +382,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
           children: [
             CircularProgressIndicator(),
             SizedBox(height: 16),
-            Text('Starting terminal...'),
+            Text('启动终端...'),
           ],
         ),
       );

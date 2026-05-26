@@ -98,7 +98,7 @@ class _ProvidersScreenState extends State<ProvidersScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'Active Model',
+                                  '当前模型',
                                   style: theme.textTheme.labelSmall?.copyWith(
                                     color: AppColors.statusGreen,
                                     fontWeight: FontWeight.w600,
@@ -121,7 +121,7 @@ class _ProvidersScreenState extends State<ProvidersScreen> {
                   const SizedBox(height: 16),
                 ],
                 Text(
-                  'Select a provider to configure its API key and model.',
+                  '选择提供商以配置其 API 密钥和模型。',
                   style: theme.textTheme.bodyMedium?.copyWith(
                     color: theme.colorScheme.onSurfaceVariant,
                   ),

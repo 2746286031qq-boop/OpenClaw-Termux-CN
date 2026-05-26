@@ -105,7 +105,7 @@ class _ProviderDetailScreenState extends State<ProviderDetailScreen> {
     final confirmed = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: Text('Remove ${widget.provider.name}?'),
+        title: Text('删除 ${widget.provider.name}？'),
         content: const Text('这将删除 API 密钥并停用该模型。'),
         actions: [
           TextButton(
@@ -229,7 +229,7 @@ class _ProviderDetailScreenState extends State<ProviderDetailScreen> {
                   .map((m) => DropdownMenuItem(value: m, child: Text(m))),
               const DropdownMenuItem(
                 value: _customModelSentinel,
-                child: Text('Custom...'),
+                child: Text('自定义...'),
               ),
             ],
             onChanged: (value) {
@@ -247,7 +247,7 @@ class _ProviderDetailScreenState extends State<ProviderDetailScreen> {
               controller: _customModelController,
               decoration: const InputDecoration(
                 hintText: '例如 meta/llama-3.3-70b-instruct',
-                labelText: 'Custom model name',
+                labelText: '自定义模型名称',
               ),
             ),
           ],
