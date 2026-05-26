@@ -246,7 +246,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
   }
 
   Future<void> _take截图() async {
-    final path = await 截图Service.capture(_screenshotKey);
+    final path = await ScreenshotService.capture(_screenshotKey);
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

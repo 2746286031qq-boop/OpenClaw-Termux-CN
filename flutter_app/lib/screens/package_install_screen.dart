@@ -165,7 +165,7 @@ class _PackageInstallScreenState extends State<PackageInstallScreen> {
   }
 
   Future<void> _take截图() async {
-    final path = await 截图Service.capture(_screenshotKey, prefix: 'package');
+    final path = await ScreenshotService.capture(_screenshotKey, prefix: 'package');
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

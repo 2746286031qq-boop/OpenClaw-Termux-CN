@@ -353,7 +353,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _exportSnapshot() async {
     try {
-      final openclawJson = await NativeBridge.read根文件系统File('root/.openclaw/openclaw.json');
+      final openclawJson = await NativeBridge.readRootfsFile('root/.openclaw/openclaw.json');
       final snapshot = {
         'version': AppConstants.version,
         'timestamp': DateTime.now().toIso8601String(),
@@ -402,7 +402,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       // Restore openclaw.json into rootfs
       final openclawConfig = snapshot['openclawConfig'] as String?;
       if (openclawConfig != null) {
-        await NativeBridge.write根文件系统File('root/.openclaw/openclaw.json', openclawConfig);
+        await NativeBridge.writeRootfsFile('root/.openclaw/openclaw.json', openclawConfig);
       }
 
       // Restore preferences

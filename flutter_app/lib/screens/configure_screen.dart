@@ -250,7 +250,7 @@ class _ConfigureScreenState extends State<ConfigureScreen> {
   }
 
   Future<void> _take截图() async {
-    final path = await 截图Service.capture(_screenshotKey, prefix: 'configure');
+    final path = await ScreenshotService.capture(_screenshotKey, prefix: 'configure');
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(

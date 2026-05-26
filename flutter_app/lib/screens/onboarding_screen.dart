@@ -313,7 +313,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   }
 
   Future<void> _take截图() async {
-    final path = await 截图Service.capture(_screenshotKey, prefix: 'onboarding');
+    final path = await ScreenshotService.capture(_screenshotKey, prefix: 'onboarding');
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
