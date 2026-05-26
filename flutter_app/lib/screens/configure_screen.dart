@@ -236,7 +236,7 @@ class _ConfigureScreenState extends State<ConfigureScreen> {
     }
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('No URL found in selection'),
+        content: Text('所选内容中没有链接'),
         duration: Duration(seconds: 1),
       ),
     );
@@ -256,7 +256,7 @@ class _ConfigureScreenState extends State<ConfigureScreen> {
       SnackBar(
         content: Text(path != null
             ? '截图 saved: ${path.split('/').last}'
-            : 'Failed to capture screenshot'),
+            : '截图失败'),
       ),
     );
   }

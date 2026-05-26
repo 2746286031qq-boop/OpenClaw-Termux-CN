@@ -39,13 +39,13 @@ class _PackageInstallScreenState extends State<PackageInstallScreen> {
 
   static const _fontFallback = [
     'monospace',
-    'Noto Sans Mono',
-    'Noto Sans Mono CJK SC',
-    'Noto Sans Mono CJK TC',
-    'Noto Sans Mono CJK JP',
-    'Noto Color Emoji',
-    'Noto Sans Symbols',
-    'Noto Sans Symbols 2',
+    'Noto 等宽字体',
+    'Noto 等宽中文字体（简体）',
+    'Noto 等宽中文字体（繁体）',
+    'Noto 等宽中文字体（日语）',
+    'Noto 彩色 Emoji',
+    'Noto 符号字体',
+    'Noto 符号字体 2',
     'sans-serif',
   ];
 
@@ -171,7 +171,7 @@ class _PackageInstallScreenState extends State<PackageInstallScreen> {
       SnackBar(
         content: Text(path != null
             ? '截图 saved: ${path.split('/').last}'
-            : 'Failed to capture screenshot'),
+            : '截图失败'),
       ),
     );
   }
@@ -188,7 +188,7 @@ class _PackageInstallScreenState extends State<PackageInstallScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final action = widget.isUninstall ? 'Uninstall' : '安装';
+    final action = widget.isUninstall ? '卸载' : '安装';
 
     return Scaffold(
       appBar: AppBar(

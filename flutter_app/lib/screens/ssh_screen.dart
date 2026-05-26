@@ -76,7 +76,7 @@ class _SshScreenState extends State<SshScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Error: $e')),
+          SnackBar(content: Text('错误：$e')),
         );
       }
     } finally {
@@ -104,7 +104,7 @@ class _SshScreenState extends State<SshScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to set password: $e')),
+          SnackBar(content: Text('设置密码失败：$e')),
         );
       }
     } finally {
@@ -144,12 +144,12 @@ class _SshScreenState extends State<SshScreen> {
             Icon(Icons.vpn_key, size: 64, color: theme.colorScheme.onSurfaceVariant),
             const SizedBox(height: 16),
             Text(
-              'OpenSSH not installed',
+              'OpenSSH 未安装',
               style: theme.textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w600),
             ),
             const SizedBox(height: 8),
             Text(
-              'Install the OpenSSH package first from the Packages screen.',
+              '请先从扩展包页面安装 OpenSSH。',
               textAlign: TextAlign.center,
               style: theme.textTheme.bodyMedium?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
@@ -179,7 +179,7 @@ class _SshScreenState extends State<SshScreen> {
       padding: const EdgeInsets.all(16),
       children: [
         // Service control
-        _sectionHeader(theme, 'SERVICE CONTROL'),
+        _sectionHeader(theme, '服务控制'),
         const SizedBox(height: 8),
         Card(
           child: Padding(
@@ -204,7 +204,7 @@ class _SshScreenState extends State<SshScreen> {
                     ),
                     const SizedBox(width: 12),
                     Text(
-                      _running ? 'SSH server running' : 'SSH server stopped',
+                      _running ? 'SSH 服务器运行中' : 'SSH 服务器已停止',
                       style: theme.textTheme.titleSmall?.copyWith(
                         fontWeight: FontWeight.w600,
                       ),

@@ -72,7 +72,7 @@ class GatewayControls extends StatelessWidget {
                           Clipboard.setData(ClipboardData(text: url));
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                              content: Text('URL copied to clipboard'),
+                              content: Text('链接已复制到剪贴板'),
                               duration: Duration(seconds: 2),
                             ),
                           );
@@ -121,7 +121,7 @@ class GatewayControls extends StatelessWidget {
                         MaterialPageRoute(builder: (_) => const LogsScreen()),
                       ),
                       icon: const Icon(Icons.article_outlined),
-                      label: const Text('View Logs'),
+                      label: const Text('查看日志'),
                     ),
                   ],
                 ),

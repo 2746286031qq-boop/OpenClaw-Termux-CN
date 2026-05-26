@@ -59,13 +59,13 @@ class NodeProvider extends ChangeNotifier with WidgetsBindingObserver {
       case NodeStatus.connecting:
       case NodeStatus.challenging:
       case NodeStatus.pairing:
-        text = 'Node connecting...';
+        text = '节点连接中...';
         break;
       case NodeStatus.disconnected:
-        text = 'Node reconnecting...';
+        text = '节点重连中...';
         break;
       case NodeStatus.error:
-        text = 'Node error — retrying';
+        text = '节点错误 — 重试中';
         break;
       default:
         return;

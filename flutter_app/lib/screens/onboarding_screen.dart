@@ -262,7 +262,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     if (url != null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('Copied to clipboard'),
+          content: const Text('已复制到剪贴板'),
           duration: const Duration(seconds: 3),
           action: SnackBarAction(
             label: '打开',
@@ -278,7 +278,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Copied to clipboard'),
+          content: Text('已复制到剪贴板'),
           duration: Duration(seconds: 1),
         ),
       );
@@ -299,7 +299,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     }
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('No URL found in selection'),
+        content: Text('所选内容中没有链接'),
         duration: Duration(seconds: 1),
       ),
     );
@@ -319,7 +319,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       SnackBar(
         content: Text(path != null
             ? '截图 saved: ${path.split('/').last}'
-            : 'Failed to capture screenshot'),
+            : '截图失败'),
       ),
     );
   }
@@ -376,7 +376,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               Clipboard.setData(ClipboardData(text: url));
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
-                  content: Text('Link copied'),
+                  content: Text('链接已复制'),
                   duration: Duration(seconds: 1),
                 ),
               );

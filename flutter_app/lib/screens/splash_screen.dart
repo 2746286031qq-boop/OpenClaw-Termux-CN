@@ -130,13 +130,13 @@ class _SplashScreenState extends State<SplashScreen>
           if (rootfsOk && bashOk) {
             // Regenerate bionic bypass if missing
             if (!bypassOk) {
-              setState(() => _status = 'Repairing bionic bypass...');
+              setState(() => _status = '修复 Bionic 绕过...');
               await NativeBridge.installBionicBypass();
             }
 
             // Reinstall node if binary is missing (#97)
             if (!nodeOk) {
-              setState(() => _status = 'Reinstalling Node.js...');
+              setState(() => _status = '重新安装 Node.js...');
               try {
                 final arch = await NativeBridge.getArch();
                 final nodeTarUrl = AppConstants.getNodeTarballUrl(arch);
@@ -150,7 +150,7 @@ class _SplashScreenState extends State<SplashScreen>
 
             // Reinstall openclaw if package.json is missing (#97)
             if (!openclawOk && nodeOk) {
-              setState(() => _status = 'Reinstalling OpenClaw...');
+              setState(() => _status = '重新安装 OpenClaw...');
               try {
                 const wrapper = '/root/.openclaw/node-wrapper.js';
                 const nodeRun = 'node $wrapper';
@@ -213,7 +213,7 @@ class _SplashScreenState extends State<SplashScreen>
               ),
               const SizedBox(height: 8),
               Text(
-                'AI Gateway for Android',
+                'AI 网关（安卓版）',
                 style: Theme.of(context).textTheme.bodyLarge?.copyWith(
                   color: Theme.of(context).colorScheme.onSurfaceVariant,
                 ),

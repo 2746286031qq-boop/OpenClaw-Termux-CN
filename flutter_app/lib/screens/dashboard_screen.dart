@@ -46,7 +46,7 @@ class DashboardScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 4, bottom: 8),
               child: Text(
-                'QUICK ACTIONS',
+                '快捷操作',
                 style: theme.textTheme.labelSmall?.copyWith(
                   color: theme.colorScheme.onSurfaceVariant,
                   fontWeight: FontWeight.w600,

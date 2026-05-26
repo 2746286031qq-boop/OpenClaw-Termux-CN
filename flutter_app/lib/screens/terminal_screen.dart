@@ -130,7 +130,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
     } catch (e) {
       setState(() {
         _loading = false;
-        _error = 'Failed to start terminal: $e';
+        _error = '启动终端失败：$e';
       });
     }
   }
@@ -232,7 +232,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
     }
     ScaffoldMessenger.of(context).showSnackBar(
       const SnackBar(
-        content: Text('No URL found in selection'),
+        content: Text('所选内容中没有链接'),
         duration: Duration(seconds: 1),
       ),
     );
@@ -252,7 +252,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
       SnackBar(
         content: Text(path != null
             ? '截图 saved: ${path.split('/').last}'
-            : 'Failed to capture screenshot'),
+            : '截图失败'),
       ),
     );
   }
@@ -309,7 +309,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
               Clipboard.setData(ClipboardData(text: url));
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(
-                  content: Text('Link copied'),
+                  content: Text('链接已复制'),
                   duration: Duration(seconds: 1),
                 ),
               );

@@ -64,7 +64,7 @@ class _SetupWizardScreenState extends State<SetupWizardScreen> {
                   ),
                   const SizedBox(height: 16),
                   Text(
-                    'Setup OpenClaw',
+                    '安装 OpenClaw',
                     style: theme.textTheme.headlineSmall?.copyWith(
                       fontWeight: FontWeight.bold,
                     ),
@@ -72,8 +72,8 @@ class _SetupWizardScreenState extends State<SetupWizardScreen> {
                   const SizedBox(height: 8),
                   Text(
                     _started
-                        ? 'Setting up the environment. This may take several minutes.'
-                        : 'This will download Ubuntu, Node.js, and OpenClaw into a self-contained environment.',
+                        ? '正在安装环境，这可能需要几分钟。'
+                        : '将下载 Ubuntu、Node.js 和 OpenClaw 到一个独立环境中。',
                     style: theme.textTheme.bodyMedium?.copyWith(
                       color: theme.colorScheme.onSurfaceVariant,
                     ),
@@ -99,7 +99,7 @@ class _SetupWizardScreenState extends State<SetupWizardScreen> {
                             Expanded(
                               child: SingleChildScrollView(
                                 child: Text(
-                                  state.error ?? 'Unknown error',
+                                  state.error ?? '未知错误',
                                   style: TextStyle(color: theme.colorScheme.onErrorContainer),
                                 ),
                               ),
@@ -130,14 +130,14 @@ class _SetupWizardScreenState extends State<SetupWizardScreen> {
                                 provider.runSetup();
                               },
                         icon: const Icon(Icons.download),
-                        label: Text(_started ? 'Retry Setup' : '开始安装'),
+                        label: Text(_started ? '重试安装' : '开始安装'),
                       ),
                     ),
                   if (!_started) ...[
                     const SizedBox(height: 8),
                     Center(
                       child: Text(
-                        'Requires ~500MB of storage and an internet connection',
+                        '需要约 500MB 存储空间和网络连接',
                         style: theme.textTheme.bodySmall?.copyWith(
                           color: theme.colorScheme.onSurfaceVariant,
                         ),
@@ -147,7 +147,7 @@ class _SetupWizardScreenState extends State<SetupWizardScreen> {
                   const SizedBox(height: 16),
                   Center(
                     child: Text(
-                      'by ${AppConstants.authorName} | ${AppConstants.orgName}',
+                      '${AppConstants.authorName} | ${AppConstants.orgName}',
                       style: theme.textTheme.bodySmall?.copyWith(
                         color: theme.colorScheme.onSurfaceVariant,
                       ),
@@ -164,11 +164,11 @@ class _SetupWizardScreenState extends State<SetupWizardScreen> {
 
   Widget _buildSteps(SetupState state, ThemeData theme, bool isDark) {
     final steps = [
-      (1, 'Download Ubuntu rootfs', SetupStep.downloadingRootfs),
-      (2, 'Extract rootfs', SetupStep.extractingRootfs),
-      (3, 'Install Node.js', SetupStep.installingNode),
-      (4, 'Install OpenClaw', SetupStep.installingOpenClaw),
-      (5, 'Configure Bionic Bypass', SetupStep.configuringBypass),
+      (1, '下载 Ubuntu 根文件系统', SetupStep.downloadingRootfs),
+      (2, '解压根文件系统', SetupStep.extractingRootfs),
+      (3, '安装 Node.js', SetupStep.installingNode),
+      (4, '安装 OpenClaw', SetupStep.installingOpenClaw),
+      (5, '配置 Bionic 绕过', SetupStep.configuringBypass),
     ];
 
     return ListView(
@@ -192,7 +192,7 @@ class _SetupWizardScreenState extends State<SetupWizardScreen> {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             child: Text(
-              'OPTIONAL PACKAGES',
+              '可选扩展包',
               style: theme.textTheme.labelSmall?.copyWith(
                 color: theme.colorScheme.onSurfaceVariant,
                 fontWeight: FontWeight.w600,
@@ -237,7 +237,7 @@ class _SetupWizardScreenState extends State<SetupWizardScreen> {
                   color: AppColors.statusGreen.withAlpha(25),
                   borderRadius: BorderRadius.circular(8),
                 ),
-                child: Text('Installed',
+                child: Text('已安装',
                     style: theme.textTheme.labelSmall?.copyWith(
                       color: AppColors.statusGreen,
                       fontWeight: FontWeight.w600,

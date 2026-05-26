@@ -43,12 +43,12 @@ class _LogsScreenState extends State<LogsScreen> {
             icon: Icon(
               _autoScroll ? Icons.vertical_align_bottom : Icons.vertical_align_top,
             ),
-            tooltip: _autoScroll ? 'Auto-scroll on' : 'Auto-scroll off',
+            tooltip: _autoScroll ? 'Auto-scroll on' : '自动滚动关',
             onPressed: () => setState(() => _autoScroll = !_autoScroll),
           ),
           IconButton(
             icon: const Icon(Icons.copy),
-            tooltip: 'Copy all logs',
+            tooltip: '复制所有日志',
             onPressed: () => _copyLogs(context),
           ),
         ],
@@ -94,7 +94,7 @@ class _LogsScreenState extends State<LogsScreen> {
                 if (filtered.isEmpty) {
                   return Center(
                     child: Text(
-                      logs.isEmpty ? 'No logs yet. Start the gateway.' : 'No matching logs.',
+                      logs.isEmpty ? 'No logs yet. Start the gateway.' : '没有匹配的日志。',
                       style: theme.textTheme.bodyMedium?.copyWith(
                         color: theme.colorScheme.onSurfaceVariant,
                       ),
@@ -136,10 +136,10 @@ class _LogsScreenState extends State<LogsScreen> {
   }
 
   Color _logColor(String line, ThemeData theme) {
-    if (line.contains('[ERR]') || line.contains('ERROR')) {
+    if (line.contains('[ERR]') || line.contains('错误')) {
       return theme.colorScheme.error;
     }
-    if (line.contains('[WARN]') || line.contains('WARNING')) {
+    if (line.contains('[WARN]') || line.contains('警告')) {
       return AppColors.statusAmber;
     }
     if (line.contains('[INFO]')) {
@@ -155,7 +155,7 @@ class _LogsScreenState extends State<LogsScreen> {
       SnackBar(
         content: Text(path != null
             ? 'Screenshot saved: ${path.split('/').last}'
-            : 'Failed to capture screenshot'),
+            : '截图失败'),
       ),
     );
   }

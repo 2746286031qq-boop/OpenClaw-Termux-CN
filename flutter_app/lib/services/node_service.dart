@@ -83,7 +83,7 @@ class NodeService {
     } catch (e) {
       _updateState(_state.copyWith(
         status: NodeStatus.error,
-        errorMessage: 'Connection failed: $e',
+        errorMessage: '连接失败：$e',
       ));
       _log('[NODE] Connection failed: $e');
     }

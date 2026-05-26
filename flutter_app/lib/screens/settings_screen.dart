@@ -314,7 +314,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 ListTile(
                   title: const Text('Play Store'),
-                  subtitle: const Text('NextGenX Apps'),
+                  subtitle: const Text('NextGenX 应用'),
                   leading: const Icon(Icons.shop),
                   trailing: const Icon(Icons.open_in_new, size: 18),
                   onTap: () => launchUrl(
@@ -454,14 +454,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
           builder: (ctx) => AlertDialog(
             title: const Text('有新版本'),
             content: Text(
-              'A new version is available.\n\n'
+              '有新版本可用。\n\n'
               'Current: ${AppConstants.version}\n'
               'Latest: ${result.latest}',
             ),
             actions: [
               TextButton(
                 onPressed: () => Navigator.pop(ctx),
-                child: const Text('Later'),
+                child: const Text('稍后'),
               ),
               FilledButton(
                 onPressed: () {
@@ -471,7 +471,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                     mode: LaunchMode.externalApplication,
                   );
                 },
-                child: const Text('Download'),
+                child: const Text('下载'),
               ),
             ],
           ),
