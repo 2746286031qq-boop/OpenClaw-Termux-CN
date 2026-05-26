@@ -48,7 +48,7 @@ class _LogsScreenState extends State<LogsScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.copy),
-            tooltip: '复制全部日志',
+            tooltip: 'Copy all logs',
             onPressed: () => _copyLogs(context),
           ),
         ],
@@ -60,7 +60,7 @@ class _LogsScreenState extends State<LogsScreen> {
             child: TextField(
               controller: _searchController,
               decoration: InputDecoration(
-                hintText: 'Filter logs...',
+                hintText: '筛选日志...',
                 prefixIcon: const Icon(Icons.search),
                 isDense: true,
                 contentPadding: const EdgeInsets.symmetric(
@@ -165,7 +165,7 @@ class _LogsScreenState extends State<LogsScreen> {
     final text = provider.state.logs.join('\n');
     Clipboard.setData(ClipboardData(text: text));
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Logs copied to clipboard')),
+      const SnackBar(content: Text('日志已复制到剪贴板')),
     );
   }
 }

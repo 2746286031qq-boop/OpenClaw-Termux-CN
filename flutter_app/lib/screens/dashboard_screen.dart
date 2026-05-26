@@ -26,7 +26,7 @@ class DashboardScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('OpenClaw 中文版'),
+        title: const Text('OpenClaw'),
         actions: [
           IconButton(
             icon: const Icon(Icons.settings),
@@ -56,7 +56,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             StatusCard(
               title: '终端',
-              subtitle: '打开 Ubuntu Shell 运行 OpenClaw',
+              subtitle: 'Open Ubuntu shell with OpenClaw',
               icon: Icons.terminal,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(
@@ -84,7 +84,7 @@ class DashboardScreen extends StatelessWidget {
                       if (token != null)
                         IconButton(
                           icon: const Icon(Icons.copy, size: 18),
-                          tooltip: '复制管理地址',
+                          tooltip: 'Copy dashboard URL',
                           onPressed: () {
                             Clipboard.setData(ClipboardData(text: url!));
                             ScaffoldMessenger.of(context).showSnackBar(
@@ -109,7 +109,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             StatusCard(
               title: '设置引导',
-              subtitle: '配置 API 密钥和绑定地址',
+              subtitle: 'Configure API keys and binding',
               icon: Icons.vpn_key,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(
@@ -118,7 +118,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             StatusCard(
               title: '配置',
-              subtitle: '管理网关设置',
+              subtitle: 'Manage gateway settings',
               icon: Icons.tune,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(
@@ -127,7 +127,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             StatusCard(
               title: 'AI 提供商',
-              subtitle: '配置模型和 API 密钥',
+              subtitle: 'Configure models and API keys',
               icon: Icons.model_training,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(
@@ -136,7 +136,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             StatusCard(
               title: '扩展包',
-              subtitle: '安装可选工具（Go、Homebrew、SSH）',
+              subtitle: 'Install optional tools (Go, Homebrew, SSH)',
               icon: Icons.extension,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(
@@ -144,8 +144,8 @@ class DashboardScreen extends StatelessWidget {
               ),
             ),
             StatusCard(
-              title: 'SSH Access',
-              subtitle: '通过 SSH 远程访问终端',
+              title: 'SSH 访问',
+              subtitle: 'Remote terminal access via SSH',
               icon: Icons.terminal,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(
@@ -154,7 +154,7 @@ class DashboardScreen extends StatelessWidget {
             ),
             StatusCard(
               title: '日志',
-              subtitle: '查看网关输出和错误',
+              subtitle: 'View gateway output and errors',
               icon: Icons.article_outlined,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(
@@ -162,8 +162,8 @@ class DashboardScreen extends StatelessWidget {
               ),
             ),
             StatusCard(
-              title: 'Snapshot',
-              subtitle: '备份或恢复配置',
+              title: '快照',
+              subtitle: 'Backup or restore your config',
               icon: Icons.backup,
               trailing: const Icon(Icons.chevron_right),
               onTap: () => Navigator.of(context).push(

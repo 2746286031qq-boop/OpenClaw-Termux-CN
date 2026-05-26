@@ -185,7 +185,7 @@ class _SetupWizardScreenState extends State<SetupWizardScreen> {
         if (state.isComplete) ...[
           const ProgressStep(
             stepNumber: 6,
-            label: 'Setup complete!',
+            label: '安装完成！',
             isComplete: true,
           ),
           const SizedBox(height: 24),

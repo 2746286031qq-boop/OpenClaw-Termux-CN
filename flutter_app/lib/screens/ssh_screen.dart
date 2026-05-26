@@ -88,7 +88,7 @@ class _SshScreenState extends State<SshScreen> {
     final password = _passwordController.text;
     if (password.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Password cannot be empty')),
+        const SnackBar(content: Text('密码不能为空')),
       );
       return;
     }
@@ -98,7 +98,7 @@ class _SshScreenState extends State<SshScreen> {
       if (mounted) {
         _passwordController.clear();
         ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Root password updated')),
+          const SnackBar(content: Text('Root 密码已更新')),
         );
       }
     } catch (e) {
@@ -115,7 +115,7 @@ class _SshScreenState extends State<SshScreen> {
   void _copyToClipboard(String text) {
     Clipboard.setData(ClipboardData(text: text));
     ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(content: Text('Copied to clipboard')),
+      const SnackBar(content: Text('已复制到剪贴板')),
     );
   }
 
@@ -125,7 +125,7 @@ class _SshScreenState extends State<SshScreen> {
     final isDark = theme.brightness == Brightness.dark;
 
     return Scaffold(
-      appBar: AppBar(title: const Text('SSH Access')),
+      appBar: AppBar(title: const Text('SSH 访问')),
       body: _loading
           ? const Center(child: CircularProgressIndicator())
           : _installed
@@ -164,7 +164,7 @@ class _SshScreenState extends State<SshScreen> {
                 _refresh();
               },
               icon: const Icon(Icons.extension),
-              label: const Text('Open Packages'),
+              label: const Text('打开扩展包'),
             ),
           ],
         ),
@@ -233,7 +233,7 @@ class _SshScreenState extends State<SshScreen> {
                                   width: 20,
                                   child: CircularProgressIndicator(strokeWidth: 2),
                                 )
-                              : const Text('Stop Server'),
+                              : const Text('停止服务器'),
                         )
                       : FilledButton(
                           onPressed: _toggling ? null : _toggleSshd,
@@ -246,7 +246,7 @@ class _SshScreenState extends State<SshScreen> {
                                     color: Colors.white,
                                   ),
                                 )
-                              : const Text('Start Server'),
+                              : const Text('启动服务器'),
                         ),
                 ),
               ],
@@ -276,7 +276,7 @@ class _SshScreenState extends State<SshScreen> {
                   obscureText: true,
                   decoration: const InputDecoration(
                     labelText: 'New password',
-                    hintText: 'Enter password',
+                    hintText: '输入密码',
                   ),
                 ),
                 const SizedBox(height: 12),

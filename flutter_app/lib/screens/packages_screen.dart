@@ -67,7 +67,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
               Navigator.pop(ctx);
               _navigateToInstall(package, isUninstall: true);
             },
-            child: const Text('卸载'),
+            child: const Text('Uninstall'),
           ),
         ],
       ),
@@ -175,7 +175,7 @@ class _PackagesScreenState extends State<PackagesScreen> {
             installed
                 ? OutlinedButton(
                     onPressed: () => _confirmUninstall(package),
-                    child: const Text('卸载'),
+                    child: const Text('Uninstall'),
                   )
                 : FilledButton(
                     onPressed: () => _navigateToInstall(package),

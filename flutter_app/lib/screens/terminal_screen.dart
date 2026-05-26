@@ -195,7 +195,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
     if (url != null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('Copied to clipboard'),
+          content: const Text('已复制到剪贴板'),
           duration: const Duration(seconds: 3),
           action: SnackBarAction(
             label: '打开',
@@ -211,7 +211,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Copied to clipboard'),
+          content: Text('已复制到剪贴板'),
           duration: Duration(seconds: 1),
         ),
       );
@@ -245,13 +245,13 @@ class _TerminalScreenState extends State<TerminalScreen> {
     }
   }
 
-  Future<void> _takeScreenshot() async {
-    final path = await ScreenshotService.capture(_screenshotKey);
+  Future<void> _take截图() async {
+    final path = await 截图Service.capture(_screenshotKey);
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(path != null
-            ? 'Screenshot saved: ${path.split('/').last}'
+            ? '截图 saved: ${path.split('/').last}'
             : 'Failed to capture screenshot'),
       ),
     );
@@ -297,7 +297,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
     final shouldOpen = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Open Link'),
+        title: const Text('打开链接'),
         content: Text(url),
         actions: [
           TextButton(
@@ -338,8 +338,8 @@ class _TerminalScreenState extends State<TerminalScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.camera_alt_outlined),
-            tooltip: 'Screenshot',
-            onPressed: _takeScreenshot,
+            tooltip: '截图',
+            onPressed: _take截图,
           ),
           IconButton(
             icon: const Icon(Icons.copy),
@@ -348,7 +348,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.open_in_browser),
-            tooltip: 'Open URL',
+            tooltip: '打开网址',
             onPressed: _openSelection,
           ),
           IconButton(
@@ -358,7 +358,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.refresh),
-            tooltip: 'Restart',
+            tooltip: '重启',
             onPressed: () {
               _pty?.kill();
               setState(() {
@@ -382,7 +382,7 @@ class _TerminalScreenState extends State<TerminalScreen> {
           children: [
             CircularProgressIndicator(),
             SizedBox(height: 16),
-            Text('启动终端中...'),
+            Text('Starting terminal...'),
           ],
         ),
       );

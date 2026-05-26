@@ -66,13 +66,13 @@ class GatewayControls extends StatelessWidget {
                       ),
                       IconButton(
                         icon: const Icon(Icons.copy, size: 18),
-                        tooltip: '复制地址',
+                        tooltip: 'Copy URL',
                         onPressed: () {
                           final url = state.dashboardUrl ?? AppConstants.gatewayUrl;
                           Clipboard.setData(ClipboardData(text: url));
                           ScaffoldMessenger.of(context).showSnackBar(
                             const SnackBar(
-                              content: Text('地址已复制到剪贴板'),
+                              content: Text('URL copied to clipboard'),
                               duration: Duration(seconds: 2),
                             ),
                           );
@@ -80,7 +80,7 @@ class GatewayControls extends StatelessWidget {
                       ),
                       IconButton(
                         icon: const Icon(Icons.open_in_new, size: 18),
-                        tooltip: '打开管理页面',
+                        tooltip: 'Open dashboard',
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
@@ -121,7 +121,7 @@ class GatewayControls extends StatelessWidget {
                         MaterialPageRoute(builder: (_) => const LogsScreen()),
                       ),
                       icon: const Icon(Icons.article_outlined),
-                      label: const Text('查看日志'),
+                      label: const Text('View Logs'),
                     ),
                   ],
                 ),
@@ -145,7 +145,7 @@ class GatewayControls extends StatelessWidget {
         icon = Icons.check_circle_outline;
       case GatewayStatus.starting:
         color = AppColors.statusAmber;
-        label = '启动中';
+        label = 'Starting';
         icon = Icons.hourglass_top;
       case GatewayStatus.error:
         color = AppColors.statusRed;

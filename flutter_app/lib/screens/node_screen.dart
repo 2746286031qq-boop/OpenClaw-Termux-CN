@@ -66,7 +66,7 @@ class _NodeScreenState extends State<NodeScreen> {
                     const NodeControls(),
                     const SizedBox(height: 16),
 
-                    // Gateway Connection
+                    // Gateway 连接ion
                     _sectionHeader(theme, 'GATEWAY CONNECTION'),
                     Card(
                       child: Padding(
@@ -76,7 +76,7 @@ class _NodeScreenState extends State<NodeScreen> {
                           children: [
                             RadioListTile<bool>(
                               title: const Text('本地网关'),
-                              subtitle: const Text('Auto-pair with gateway on this device'),
+                              subtitle: const Text('自动与本机网关配对'),
                               value: true,
                               groupValue: _isLocal,
                               onChanged: (value) {
@@ -85,7 +85,7 @@ class _NodeScreenState extends State<NodeScreen> {
                             ),
                             RadioListTile<bool>(
                               title: const Text('远程网关'),
-                              subtitle: const Text('Connect to a gateway on another device'),
+                              subtitle: const Text('连接 to a gateway on another device'),
                               value: false,
                               groupValue: _isLocal,
                               onChanged: (value) {
@@ -115,8 +115,8 @@ class _NodeScreenState extends State<NodeScreen> {
                                 controller: _tokenController,
                                 decoration: const InputDecoration(
                                   labelText: 'Gateway Token',
-                                  hintText: 'Paste token from gateway dashboard URL',
-                                  helperText: 'Found in dashboard URL after #token=',
+                                  hintText: '从网关管理地址粘贴 Token',
+                                  helperText: '在管理地址 #token= 后找到',
                                   prefixIcon: Icon(Icons.key),
                                 ),
                                 obscureText: true,
@@ -133,7 +133,7 @@ class _NodeScreenState extends State<NodeScreen> {
                                   }
                                 },
                                 icon: const Icon(Icons.link),
-                                label: const Text('Connect'),
+                                label: const Text('连接'),
                               ),
                             ],
                           ],
@@ -172,7 +172,7 @@ class _NodeScreenState extends State<NodeScreen> {
                       const SizedBox(height: 16),
                     ],
 
-                    // Capabilities
+                    // 设备功能
                     _sectionHeader(theme, 'CAPABILITIES'),
                     _capabilityTile(
                       theme,
@@ -225,11 +225,11 @@ class _NodeScreenState extends State<NodeScreen> {
                     ),
                     const SizedBox(height: 16),
 
-                    // Device Info
+                    // 设备信息
                     if (state.deviceId != null) ...[
                       _sectionHeader(theme, 'DEVICE INFO'),
                       ListTile(
-                        title: const Text('Device ID'),
+                        title: const Text('设备 ID'),
                         subtitle: SelectableText(
                           state.deviceId!,
                           style: const TextStyle(fontFamily: 'monospace', fontSize: 12),

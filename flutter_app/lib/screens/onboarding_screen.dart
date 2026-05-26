@@ -113,7 +113,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       onboardingArgs.removeLast(); // remove '/bin/bash'
       onboardingArgs.addAll([
         '/bin/bash', '-lc',
-        'echo "=== OpenClaw Onboarding ===" && '
+        'echo "=== OpenClaw 引导设置 ===" && '
         'echo "Configure your API keys and binding settings." && '
         'echo "TIP: Select Loopback (127.0.0.1) when asked for binding!" && '
         'echo "" && '
@@ -312,13 +312,13 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     }
   }
 
-  Future<void> _takeScreenshot() async {
-    final path = await ScreenshotService.capture(_screenshotKey, prefix: 'onboarding');
+  Future<void> _take截图() async {
+    final path = await 截图Service.capture(_screenshotKey, prefix: 'onboarding');
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(path != null
-            ? 'Screenshot saved: ${path.split('/').last}'
+            ? '截图 saved: ${path.split('/').last}'
             : 'Failed to capture screenshot'),
       ),
     );
@@ -364,7 +364,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     final shouldOpen = await showDialog<bool>(
       context: context,
       builder: (ctx) => AlertDialog(
-        title: const Text('Open Link'),
+        title: const Text('打开链接'),
         content: Text(url),
         actions: [
           TextButton(
@@ -415,7 +415,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('OpenClaw Onboarding'),
+        title: const Text('OpenClaw 引导设置'),
         leading: widget.isFirstRun
             ? null // no back button during first-run
             : IconButton(
@@ -426,8 +426,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.camera_alt_outlined),
-            tooltip: 'Screenshot',
-            onPressed: _takeScreenshot,
+            tooltip: '截图',
+            onPressed: _take截图,
           ),
           IconButton(
             icon: const Icon(Icons.copy),
@@ -436,7 +436,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.open_in_browser),
-            tooltip: 'Open URL',
+            tooltip: '打开网址',
             onPressed: _openSelection,
           ),
           IconButton(
@@ -456,7 +456,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   children: [
                     CircularProgressIndicator(),
                     SizedBox(height: 16),
-                    Text('启动引导中...'),
+                    Text('Starting onboarding...'),
                   ],
                 ),
               ),

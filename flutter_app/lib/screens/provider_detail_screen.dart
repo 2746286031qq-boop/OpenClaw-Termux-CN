@@ -65,14 +65,14 @@ class _ProviderDetailScreenState extends State<ProviderDetailScreen> {
     final apiKey = _apiKeyController.text.trim();
     if (apiKey.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('API key cannot be empty')),
+        const SnackBar(content: Text('API 密钥不能为空')),
       );
       return;
     }
     final model = _effectiveModel;
     if (model.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Model name cannot be empty')),
+        const SnackBar(content: Text('模型名称不能为空')),
       );
       return;
     }
@@ -93,7 +93,7 @@ class _ProviderDetailScreenState extends State<ProviderDetailScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to save: $e')),
+          SnackBar(content: Text('保存失败: $e')),
         );
       }
     } finally {
@@ -106,7 +106,7 @@ class _ProviderDetailScreenState extends State<ProviderDetailScreen> {
       context: context,
       builder: (ctx) => AlertDialog(
         title: Text('Remove ${widget.provider.name}?'),
-        content: const Text('This will delete the API key and deactivate the model.'),
+        content: const Text('这将删除 API 密钥并停用该模型。'),
         actions: [
           TextButton(
             onPressed: () => Navigator.pop(ctx, false),
@@ -134,7 +134,7 @@ class _ProviderDetailScreenState extends State<ProviderDetailScreen> {
     } catch (e) {
       if (mounted) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Failed to remove: $e')),
+          SnackBar(content: Text('删除失败: $e')),
         );
       }
     } finally {
@@ -246,7 +246,7 @@ class _ProviderDetailScreenState extends State<ProviderDetailScreen> {
             TextField(
               controller: _customModelController,
               decoration: const InputDecoration(
-                hintText: 'e.g. meta/llama-3.3-70b-instruct',
+                hintText: '例如 meta/llama-3.3-70b-instruct',
                 labelText: 'Custom model name',
               ),
             ),
@@ -262,7 +262,7 @@ class _ProviderDetailScreenState extends State<ProviderDetailScreen> {
                     width: 20,
                     child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white),
                   )
-                : const Text('Save & Activate'),
+                : const Text('保存并激活'),
           ),
           if (_isConfigured) ...[
             const SizedBox(height: 12),
@@ -274,7 +274,7 @@ class _ProviderDetailScreenState extends State<ProviderDetailScreen> {
                       width: 20,
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
-                  : const Text('Remove Configuration'),
+                  : const Text('删除配置'),
             ),
           ],
         ],

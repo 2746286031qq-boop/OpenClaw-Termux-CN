@@ -164,13 +164,13 @@ class _PackageInstallScreenState extends State<PackageInstallScreen> {
     }
   }
 
-  Future<void> _takeScreenshot() async {
-    final path = await ScreenshotService.capture(_screenshotKey, prefix: 'package');
+  Future<void> _take截图() async {
+    final path = await 截图Service.capture(_screenshotKey, prefix: 'package');
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(path != null
-            ? 'Screenshot saved: ${path.split('/').last}'
+            ? '截图 saved: ${path.split('/').last}'
             : 'Failed to capture screenshot'),
       ),
     );
@@ -188,7 +188,7 @@ class _PackageInstallScreenState extends State<PackageInstallScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final action = widget.isUninstall ? '卸载' : '安装';
+    final action = widget.isUninstall ? 'Uninstall' : '安装';
 
     return Scaffold(
       appBar: AppBar(
@@ -197,8 +197,8 @@ class _PackageInstallScreenState extends State<PackageInstallScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.camera_alt_outlined),
-            tooltip: 'Screenshot',
-            onPressed: _takeScreenshot,
+            tooltip: '截图',
+            onPressed: _take截图,
           ),
           IconButton(
             icon: const Icon(Icons.paste),

@@ -89,7 +89,7 @@ class _ConfigureScreenState extends State<ConfigureScreen> {
       configureArgs.removeLast(); // remove '/bin/bash'
       configureArgs.addAll([
         '/bin/bash', '-lc',
-        'echo "=== OpenClaw Configure ===" && '
+        'echo "=== OpenClaw 配置 ===" && '
         'echo "Manage your gateway settings." && '
         'echo "" && '
         'openclaw configure; '
@@ -199,7 +199,7 @@ class _ConfigureScreenState extends State<ConfigureScreen> {
     if (url != null) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text('Copied to clipboard'),
+          content: const Text('已复制到剪贴板'),
           duration: const Duration(seconds: 3),
           action: SnackBarAction(
             label: '打开',
@@ -215,7 +215,7 @@ class _ConfigureScreenState extends State<ConfigureScreen> {
     } else {
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
-          content: Text('Copied to clipboard'),
+          content: Text('已复制到剪贴板'),
           duration: Duration(seconds: 1),
         ),
       );
@@ -249,13 +249,13 @@ class _ConfigureScreenState extends State<ConfigureScreen> {
     }
   }
 
-  Future<void> _takeScreenshot() async {
-    final path = await ScreenshotService.capture(_screenshotKey, prefix: 'configure');
+  Future<void> _take截图() async {
+    final path = await 截图Service.capture(_screenshotKey, prefix: 'configure');
     if (!mounted) return;
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(path != null
-            ? 'Screenshot saved: ${path.split('/').last}'
+            ? '截图 saved: ${path.split('/').last}'
             : 'Failed to capture screenshot'),
       ),
     );
@@ -265,7 +265,7 @@ class _ConfigureScreenState extends State<ConfigureScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('OpenClaw Configure'),
+        title: const Text('OpenClaw 配置'),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () => Navigator.of(context).pop(),
@@ -274,8 +274,8 @@ class _ConfigureScreenState extends State<ConfigureScreen> {
         actions: [
           IconButton(
             icon: const Icon(Icons.camera_alt_outlined),
-            tooltip: 'Screenshot',
-            onPressed: _takeScreenshot,
+            tooltip: '截图',
+            onPressed: _take截图,
           ),
           IconButton(
             icon: const Icon(Icons.copy),
@@ -284,7 +284,7 @@ class _ConfigureScreenState extends State<ConfigureScreen> {
           ),
           IconButton(
             icon: const Icon(Icons.open_in_browser),
-            tooltip: 'Open URL',
+            tooltip: '打开网址',
             onPressed: _openSelection,
           ),
           IconButton(
@@ -304,7 +304,7 @@ class _ConfigureScreenState extends State<ConfigureScreen> {
                   children: [
                     CircularProgressIndicator(),
                     SizedBox(height: 16),
-                    Text('启动配置中...'),
+                    Text('Starting configure...'),
                   ],
                 ),
               ),

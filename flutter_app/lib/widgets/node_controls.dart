@@ -91,7 +91,7 @@ class NodeControls extends StatelessWidget {
                         OutlinedButton.icon(
                           onPressed: () => provider.reconnect(),
                           icon: const Icon(Icons.refresh),
-                          label: const Text('Reconnect'),
+                          label: const Text('重新连接'),
                         ),
                     ],
                     OutlinedButton.icon(

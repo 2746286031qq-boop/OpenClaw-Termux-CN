@@ -92,8 +92,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
               children: [
                 _sectionHeader(theme, 'GENERAL'),
                 SwitchListTile(
-                  title: const Text('Auto-start gateway'),
-                  subtitle: const Text('Start the gateway when the app opens'),
+                  title: const Text('网关自动启动'),
+                  subtitle: const Text('打开应用时启动网关'),
                   value: _autoStart,
                   onChanged: (value) {
                     setState(() => _autoStart = value);
@@ -117,7 +117,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   },
                 ),
                 ListTile(
-                  title: const Text('Setup Storage'),
+                  title: const Text('设置存储'),
                   subtitle: Text(_storageGranted
                       ? 'Granted — proot can access /sdcard. Revoke if not needed.'
                       : 'Not granted (recommended) — tap to grant only if needed'),
@@ -136,7 +136,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 _sectionHeader(theme, 'NODE'),
                 SwitchListTile(
                   title: const Text('启用节点'),
-                  subtitle: const Text('Provide device capabilities to the gateway'),
+                  subtitle: const Text('为网关提供设备功能'),
                   value: _nodeEnabled,
                   onChanged: (value) {
                     setState(() => _nodeEnabled = value);
@@ -151,7 +151,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ),
                 ListTile(
                   title: const Text('节点配置'),
-                  subtitle: const Text('Connection, pairing, and capabilities'),
+                  subtitle: const Text('连接、配对与功能'),
                   leading: const Icon(Icons.devices),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => Navigator.of(context).push(
@@ -161,17 +161,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const Divider(),
                 _sectionHeader(theme, 'SYSTEM INFO'),
                 ListTile(
-                  title: const Text('Architecture'),
+                  title: const Text('架构'),
                   subtitle: Text(_arch),
                   leading: const Icon(Icons.memory),
                 ),
                 ListTile(
-                  title: const Text('PRoot path'),
+                  title: const Text('PRoot 路径'),
                   subtitle: Text(_prootPath),
                   leading: const Icon(Icons.folder),
                 ),
                 ListTile(
-                  title: const Text('Rootfs'),
+                  title: const Text('根文件系统'),
                   subtitle: Text(_status['rootfsExists'] == true
                       ? 'Installed'
                       : '未安装'),
@@ -192,7 +192,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   leading: const Icon(Icons.cloud),
                 ),
                 ListTile(
-                  title: const Text('Go (Golang)'),
+                  title: const Text('Go 语言'),
                   subtitle: Text(_goInstalled
                       ? 'Installed'
                       : '未安装'),
@@ -215,22 +215,22 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const Divider(),
                 _sectionHeader(theme, 'MAINTENANCE'),
                 ListTile(
-                  title: const Text('Export Snapshot'),
-                  subtitle: const Text('Backup config to Downloads'),
+                  title: const Text('导出快照'),
+                  subtitle: const Text('备份配置到下载目录'),
                   leading: const Icon(Icons.upload_file),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: _exportSnapshot,
                 ),
                 ListTile(
-                  title: const Text('Import Snapshot'),
-                  subtitle: const Text('Restore config from backup'),
+                  title: const Text('导入快照'),
+                  subtitle: const Text('从备份恢复配置'),
                   leading: const Icon(Icons.download),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: _importSnapshot,
                 ),
                 ListTile(
-                  title: const Text('Re-run setup'),
-                  subtitle: const Text('Reinstall or repair the environment'),
+                  title: const Text('重新安装'),
+                  subtitle: const Text('重装或修复环境'),
                   leading: const Icon(Icons.build),
                   trailing: const Icon(Icons.chevron_right),
                   onTap: () => Navigator.of(context).pushReplacement(
@@ -244,14 +244,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 const ListTile(
                   title: Text('OpenClaw'),
                   subtitle: Text(
-                    'AI Gateway for Android\nVersion ${AppConstants.version}',
+                    'AI Gateway for Android\n版本号 ${AppConstants.version}',
                   ),
                   leading: Icon(Icons.info_outline),
                   isThreeLine: true,
                 ),
                 ListTile(
                   title: const Text('检查更新'),
-                  subtitle: const Text('Check GitHub for a newer release'),
+                  subtitle: const Text('在 GitHub 检查新版本'),
                   leading: _checkingUpdate
                       ? const SizedBox(
                           width: 24,
@@ -277,7 +277,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ),
                 ListTile(
-                  title: const Text('Contact'),
+                  title: const Text('联系'),
                   subtitle: const Text(AppConstants.authorEmail),
                   leading: const Icon(Icons.email),
                   trailing: const Icon(Icons.open_in_new, size: 18),
@@ -353,7 +353,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   Future<void> _exportSnapshot() async {
     try {
-      final openclawJson = await NativeBridge.readRootfsFile('root/.openclaw/openclaw.json');
+      final openclawJson = await NativeBridge.read根文件系统File('root/.openclaw/openclaw.json');
       final snapshot = {
         'version': AppConstants.version,
         'timestamp': DateTime.now().toIso8601String(),
@@ -373,12 +373,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Snapshot saved to $path')),
+        SnackBar(content: Text('快照已保存到 $path')),
       );
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Export failed: $e')),
+        SnackBar(content: Text('导出失败: $e')),
       );
     }
   }
@@ -391,7 +391,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       if (!await file.exists()) {
         if (!mounted) return;
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('No snapshot found at $path')),
+          SnackBar(content: Text('在以下位置未找到快照 $path')),
         );
         return;
       }
@@ -402,7 +402,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
       // Restore openclaw.json into rootfs
       final openclawConfig = snapshot['openclawConfig'] as String?;
       if (openclawConfig != null) {
-        await NativeBridge.writeRootfsFile('root/.openclaw/openclaw.json', openclawConfig);
+        await NativeBridge.write根文件系统File('root/.openclaw/openclaw.json', openclawConfig);
       }
 
       // Restore preferences
@@ -433,12 +433,12 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Snapshot restored successfully. Restart the gateway to apply.')),
+        const SnackBar(content: Text('快照恢复成功。重启网关生效。')),
       );
     } catch (e) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Import failed: $e')),
+        SnackBar(content: Text('导入失败: $e')),
       );
     }
   }
@@ -484,7 +484,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
     } catch (_) {
       if (!mounted) return;
       ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(content: Text('Could not check for updates')),
+        const SnackBar(content: Text('无法检查更新')),
       );
     } finally {
       if (mounted) setState(() => _checkingUpdate = false);
